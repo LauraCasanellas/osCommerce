@@ -12,10 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import Processes.AddToCart;
-import Processes.CompleteShopping;
 import Products.Product;
-import Screens.*;
 
 public class TestCase1{
 
@@ -43,7 +40,7 @@ public class TestCase1{
 	}
 
 	@Before
-	public void setUp() {
+	public void setUp() throws IOException {
 		createAndStartService();
 		createDriver();
 		driver.manage().window().maximize();
@@ -60,27 +57,7 @@ public class TestCase1{
 
 	@Test
 	public void test1() {
-		driver.get("https://demo.oscommerce.com/");
-		SelectProduct.selectProduct(driver, galaxyTabProduct.getProductName());
-		
-		galaxyTabProduct.setUnitPrice(SelectProduct.getUnitaryPrice(driver));
-		//add the items to cart
-		AddToCart.addToCart(driver, String.valueOf(galaxyTabProduct.getQuantity()));
-		
-		//check total price
-		Double totalPrice = ShoppingCart.getTotalPrice(driver);
-		assertEquals(galaxyTabProduct.getTotalPrice(), totalPrice);
-		
-		//check total items
-		int productItems = ShoppingCart.getItemsForProduct(driver);
-		assertEquals(galaxyTabProduct.getQuantity(), productItems);
-		
-		//complete shopping
-		CompleteShopping.completeShopping(driver, emailAddress, password);
-		
-		//check last message
-		String lastMsg = CompleteShopping.getLastMessage(driver);
-		assertEquals("Your Order Has Been Processed!", lastMsg);
+		Helper.buyProduct(driver, galaxyTabProduct, emailAddress, password);
 	}
 }
 
