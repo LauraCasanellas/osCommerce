@@ -7,6 +7,10 @@ import org.openqa.selenium.WebElement;
 import Processes.Helper;
 
 public class ShoppingCart {
+	
+	private ShoppingCart() {
+		throw new IllegalStateException("Utility class");
+	}
 
 	public static void clickAddToCartBtn(WebDriver driver) {
 		WebElement btn = driver.findElement(By.id("tdb4"));
@@ -26,7 +30,6 @@ public class ShoppingCart {
 
 	public static int getItemsForProduct(WebDriver driver) {
 		String items = driver.findElement(By.xpath("//div[@id='columnRight']/div/table")).getText();
-		Integer.parseInt(items.substring(0, 1));
 		return Integer.parseInt(items.substring(0, 1));
 	}
 

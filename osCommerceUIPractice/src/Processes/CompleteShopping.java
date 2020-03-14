@@ -7,7 +7,11 @@ import Screens.Login;
 import Screens.ShoppingCart;
 
 public class CompleteShopping {
-	
+
+	private CompleteShopping() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	/**
 	 * Process to complete the shopping.
 	 * @param driver WebDriver used to browse the web.
@@ -23,7 +27,7 @@ public class CompleteShopping {
 		CheckoutPayment.continueClickBtn(driver);
 		CheckoutPayment.payNowClickBtn(driver);
 	}
-	
+
 	public static String getLastMessage(WebDriver driver) {
 		return CheckoutPayment.getSucessMsg(driver);
 	}

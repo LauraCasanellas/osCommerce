@@ -8,6 +8,10 @@ import Processes.Helper;
 
 public class SelectProduct {
 	
+	private SelectProduct() {
+		throw new IllegalStateException("Utility class");
+	}
+	
 	public static void selectProduct(WebDriver driver, String productName) {
 		WebElement product = driver.findElement(By.linkText(productName));
 		product.click();

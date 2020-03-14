@@ -43,7 +43,7 @@ public class TestCase1{
 	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		createAndStartService();
 		createDriver();
 		driver.manage().window().maximize();
@@ -54,7 +54,7 @@ public class TestCase1{
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 		quitDriver();
 	}
 

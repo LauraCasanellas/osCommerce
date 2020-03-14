@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CheckoutPayment {
+	
+	private CheckoutPayment() {
+		throw new IllegalStateException("Utility class");
+	}
 
 	public static void selectCashOnDeliveryOption(WebDriver driver) {
 		WebElement cashOnDelivery = driver.findElement(By.xpath("(//input[@name='payment'])[6]"));
