@@ -19,7 +19,7 @@ public class TestCase1{
 	private static WebDriver driver;
 	private static ChromeDriverService service;
 
-	Product galaxyTabProduct;
+	Product product;
 	String emailAddress;
 	String password;
 
@@ -40,14 +40,9 @@ public class TestCase1{
 	}
 
 	@Before
-	public void setUp() throws IOException {
-		createAndStartService();
-		createDriver();
-		driver.manage().window().maximize();
-		galaxyTabProduct = new Product("Samsung Galaxy Tab", 2);
+	public void setUp() {
 		emailAddress = "lauracasanellas46@mailinator.com";
 		password = "Test123@";
-
 	}
 
 	@After
@@ -56,8 +51,23 @@ public class TestCase1{
 	}
 
 	@Test
-	public void test1() {
-		Helper.buyProduct(driver, galaxyTabProduct, emailAddress, password);
+	public void test1() throws IOException {
+		setDriver();
+		product = new Product("Samsung Galaxy Tab", 2);
+		Helper.buyProduct(driver, product, emailAddress, password);
+	}
+	
+	@Test
+	public void test2() throws IOException {
+		setDriver();
+		product = new Product("Beloved", 3);
+		Helper.buyProduct(driver, product, emailAddress, password);
+	}
+	
+	public void setDriver() throws IOException  {
+		createAndStartService();
+		createDriver();
+		driver.manage().window().maximize();
 	}
 }
 
