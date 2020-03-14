@@ -1,10 +1,10 @@
-package Processes;
+package processes;
 
 import org.openqa.selenium.WebDriver;
 
-import Screens.CheckoutPayment;
-import Screens.Login;
-import Screens.ShoppingCart;
+import screens.CheckoutPayment;
+import screens.Login;
+import screens.ShoppingCart;
 
 public class CompleteShopping {
 

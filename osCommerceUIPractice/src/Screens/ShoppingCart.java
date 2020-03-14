@@ -1,10 +1,10 @@
-package Screens;
+package screens;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import Processes.Helper;
+import processes.Helper;
 
 public class ShoppingCart {
 	

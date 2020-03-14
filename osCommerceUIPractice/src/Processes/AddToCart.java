@@ -1,8 +1,8 @@
-package Processes;
+package processes;
 
 import org.openqa.selenium.WebDriver;
 
-import Screens.ShoppingCart;
+import screens.ShoppingCart;
 
 public class AddToCart {
 
